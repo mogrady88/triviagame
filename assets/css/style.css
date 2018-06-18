@@ -1,0 +1,19 @@
+body {
+    background-image: url("./assets/images/background.webp");
+}
+
+.page-header {
+  background:#7f7f7f;
+  background:rgba(0,0,0,0.5);
+  border-bottom: 2px solid black;
+}
+.container {
+    border: 2px solid black;
+    height: 400px;
+    background:#7f7f7f;
+    background:rgba(0,0,0,0.5);
+}
+.container,
+.row {
+    text-align:center;
+}

@@ -3,7 +3,9 @@ var correct = 0;
 var incorrect = 0;
 var missed = 0;
 var count = 3;
+var i = 0;
 var intervalId;
+var resetGame;
 
 var questions = [{
     question: "What item of clothing did both Ross and his date wear on a date?",
@@ -29,9 +31,9 @@ var questions = [{
     // randomNumber = Math.floor(Math.random()* 6);
     // console.log(randomNumber);
 
-var i = 0;
 function triviaGame(){
-    console.log(i);
+    clearTimeout(resetGame);
+    console.log("i - " + i);
 
     function runTimer(){
       clearInterval(intervalId);
@@ -46,85 +48,112 @@ function triviaGame(){
         missed++;
         nextQuestion();
         }
+        
         if (i > 5){
             clearInterval(intervalId);
             $("#timer").html("<h2>Game Over!</h2>");
             $("#question").text("");
-            $("#a").html("");
-            $("#b").html("<h4>Questions Correct: " + correct + "</h4>");
-            $("#c").html("<h4>Questions Incorrect: " + incorrect + "</h4>");
-            $("#d").html("<h4> Questions Missed: " + missed + "</h4>");
+            $("#a").html("<h4>Questions Correct: " + correct + "</h4>");
+            $("#b").html("<h4>Questions Incorrect: " + incorrect + "</h4>");
+            $("#c").html("<h4> Questions Missed: " + missed + "</h4>");
+            $("#d").html("<button id='restart' class='butt'>Restart</button>");
         }
     }
 
     runTimer();
         
         $("#question").text(questions[i].question);
-        $("#a").html("<button>" + questions[i].answers[0] + "</button>");
-        $("#b").html("<button>" + questions[i].answers[1] + "</button>");
-        $("#c").html("<button>" + questions[i].answers[2] + "</button>");
-        $("#d").html("<button>" + questions[i].answers[3] + "</button>");
+        $("#a").html("<button id='0' class='butt'>" + questions[i].answers[0] + "</button>");
+        $("#b").html("<button id='1' class='butt'>" + questions[i].answers[1] + "</button>");
+        $("#c").html("<button id='2' class='butt'>" + questions[i].answers[2] + "</button>");
+        $("#d").html("<button id='3' class='butt'>" + questions[i].answers[3] + "</button>");
 
         $("#a").on('click',function(){
-            if (questions[i].answers[0] === questions[i].answers[questions[is].correctAnswer]){
+            if (questions[i].answers[0] === questions[i].answers[questions[i].correctAnswer]){
                 console.log("right!");
                 correct++;
-                nextQuestion();
+                // document.getElementsById("0").style.borderColor = 'green';
+                // setTimeout(function(){
+                
+                // }, 3000);
+                
             }
             else{
                 console.log("wrong");
                 incorrect++;
-                nextQuestion();
+                // nextQuestion();
             }
+        nextQuestion();
         })
 
         $("#b").on('click',function(){
             if (questions[i].answers[1] === questions[i].answers[questions[i].correctAnswer]){
                 console.log("right!");
                 correct++;
-                nextQuestion();
+                // document.getElementsByClassName("container").style.borderColor = 'green';
+                // setTimeout(function(){
+                
+                // }, 3000);
+                
             }
             else{
                 console.log("wrong");
                 incorrect++;
-                nextQuestion();
+                // nextQuestion();
             }
+        nextQuestion();
         })
 
         $("#c").on('click',function(){
             if (questions[i].answers[2] === questions[i].answers[questions[i].correctAnswer]){
                 console.log("right!");
                 correct++;
-                nextQuestion();
+                // document.getElementsByClassName("container").style.borderColor = 'green';
+                // setTimeout(function(){
+               
+                // }, 3000);
+                
             }
             else{
                 console.log("wrong");
                 incorrect++;
-                nextQuestion();
+                // nextQuestion();
             }
+        nextQuestion();
         })
 
         $("#d").on('click',function(){
             if (questions[i].answers[3] === questions[i].answers[questions[i].correctAnswer]){
                 console.log("right!");
                 correct++;
-                nextQuestion();
+                // document.getElementsByClassName("container").style.borderColor = 'green';
+                // setTimeout(function(){
+                
+                // }, 3000);
             }
             else{
                 console.log("wrong");
                 incorrect++;
-                nextQuestion();
+                // nextQuestion();
             }
+        nextQuestion();
         })
 
+        
 function nextQuestion(){
     i++;
     count = 3;
     triviaGame();
 }
-    // console.log(correct);
-    // console.log(incorrect);
-    // return(i);   
+
+
+$("#restart").on('click', function(){
+    resetGame = setTimeout(function(){
+          i = 0;
+          triviaGame();
+          }, 3000);
+  })
+  
 }
 
 triviaGame();

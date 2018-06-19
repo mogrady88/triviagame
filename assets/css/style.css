@@ -1,19 +1,36 @@
-body {
-    background-image: url("./assets/images/background.webp");
+.body {
+    background-image: url("C:/Users/mrogr/desktop/homework/triviagame/assets/images/background.png");
 }
 
 .page-header {
+  color: white;
   background:#7f7f7f;
   background:rgba(0,0,0,0.5);
-  border-bottom: 2px solid black;
+  border: 2px solid black;
+  margin-top: 0px;
 }
 .container {
     border: 2px solid black;
+    border-radius: 25px;
     height: 400px;
+    color: white;
     background:#7f7f7f;
     background:rgba(0,0,0,0.5);
 }
 .container,
 .row {
     text-align:center;
+}
+
+.butt {
+    border-radius: 5px;
+    width: 250px;
+    margin: 20px 0 20px 0;
+    text-align: center;
+    color: white;
+    background-color: rgb(100, 88, 88);
+}
+
+.butt:hover {
+    background-color: rgb(179, 167, 167);
 }
